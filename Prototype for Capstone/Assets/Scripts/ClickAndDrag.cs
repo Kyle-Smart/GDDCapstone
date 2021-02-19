@@ -15,7 +15,7 @@ public class ClickAndDrag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onUI = true;
+
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class ClickAndDrag : MonoBehaviour
         mOffset = gameObject.transform.position - GetMouseWorldPosition();
     }
 
+    //This finds the mouse position in the screen and transfers it to world point
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePoint = Input.mousePosition;
@@ -47,6 +48,7 @@ public class ClickAndDrag : MonoBehaviour
         transform.position = GetMouseWorldPosition() + mOffset;
     }
 
+    //This handles destroying the UI element and replacing it with the object version
     private void OnMouseUp()
     {
         Instantiate(theObjectVersion, gameObject.transform.position, Quaternion.identity);
