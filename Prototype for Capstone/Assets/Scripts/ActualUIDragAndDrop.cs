@@ -6,30 +6,38 @@ using UnityEngine.EventSystems;
 
 public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    //NOTE: Commented out code is to be saved for the timer and bomb interaction
+    //Move them to a child script when we need to
+
+    //Vars
     [SerializeField]
     private Canvas theCanvas;
     [SerializeField]
-    private DropSlot theBomb;
+    private DropSlot dropSlot;
     [SerializeField]
-    private GameObject wallToMove;
-    private Text timerText;
+    private string beingDraggedString;
+    [SerializeField]
+    private string onGeneratorString;
+    [SerializeField]
+    private string onButtonString;
+    [SerializeField]
+    private string onDoorString;
+    private Text UIText;
     private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
 
+    //Vars for the timer
     private float timer = 3.0f;
     private bool startTimer = false;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
-        timerText = GetComponentInChildren<Text>();
-        timerText.text = "88:88";
+        UIText = GetComponentInChildren<Text>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = false;
+        UIText.text = beingDraggedString;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -39,27 +47,19 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true;
     }
 
-    public void StartTimer()
+    /*public void StartTimer()
     {
         startTimer = true;
-    }
+    }*/
 
     public void Update()
     {
-        if (startTimer)
+        /*if (startTimer)
         {
             timer -= Time.deltaTime;
-            timerText.text = "0:0" + Mathf.FloorToInt(timer % 60);
-
-            if (timer < 0)
-            {
-                wallToMove.transform.localScale = new Vector2(wallToMove.transform.localScale.x - 0.2f, wallToMove.transform.localScale.y);
-                Destroy(theBomb.gameObject);
-                Destroy(gameObject);
-            }
-        }
+            UIText.text = "0:0" + Mathf.FloorToInt(timer % 60);
+        }*/
     }
 }

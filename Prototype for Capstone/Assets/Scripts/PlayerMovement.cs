@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Vars
+    [SerializeField]
     const float maxSpeed = 10.0f;
-    const float jumpingSpeed = 100.0f;
+    [SerializeField]
+    const float jumpingSpeed = 10.0f;
     Rigidbody2D player;
     bool grounded;
+    bool jumpTimerEnded;
     bool isHit;
 
     [SerializeField]
@@ -20,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         grounded = true;
+        jumpTimerEnded = true;
     }
 
     // Update is called once per frame
@@ -44,10 +48,12 @@ public class PlayerMovement : MonoBehaviour
     //This method handles player jumping by chekcing the input axis
     private void PlayerJump()
     {
-        if (Input.GetAxis("Jump") > 0.5 && grounded)
+        if (Input.GetAxis("Jump") > 0.5 && grounded && jumpTimerEnded)
         {
             grounded = false;
+            jumpTimerEnded = false;
             player.velocity = Vector2.up * jumpingSpeed;
+            StartCoroutine(JumpCoolDown());
         }
     }
     
@@ -67,14 +73,21 @@ public class PlayerMovement : MonoBehaviour
             player.AddForce(transform.up * knockBack);
 
             //To prevent the player from losing all their HP after one hit
-            IEnumerator coroutine = HitCoolDown();
-            StartCoroutine(coroutine);
+            StartCoroutine(HitCoolDown());
         }
     }
 
+    //Timer for after the player takes damage
     private IEnumerator HitCoolDown()
     {
         yield return new WaitForSeconds(3);
         isHit = false;
+    }
+
+    //Timer for after the player jumps
+    private IEnumerator JumpCoolDown()
+    {
+        yield return new WaitForSeconds(.5f);
+        jumpTimerEnded = true;
     }
 }
