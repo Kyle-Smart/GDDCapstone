@@ -8,6 +8,7 @@ TagManager:
   - ObjectElement
   - Enemy
   - Door
+  - Lightning
   layers:
   - Default
   - TransparentFX

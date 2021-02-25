@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 454433438133450659}
   - component: {fileID: 9051525672445990743}
   - component: {fileID: 2149057388445822731}
+  - component: {fileID: -6429289363975263302}
   m_Layer: 0
   m_Name: ObjectHPBar
   m_TagString: Untagged
@@ -126,6 +127,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec80226c730b20544a2cbc9227b6a295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6429289363975263302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123247048589642886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1946d10e6138e40b3177420f994508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theObjectVersion: {fileID: 0}
+  isUI: 0
 --- !u!1001 &3498428481485816583
 PrefabInstance:
   m_ObjectHideFlags: 0

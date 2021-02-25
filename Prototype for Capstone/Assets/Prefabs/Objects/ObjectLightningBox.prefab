@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2797738098084797297}
   - component: {fileID: 6945262515734705628}
   - component: {fileID: 3899149121545977392}
+  - component: {fileID: 6068700380434269348}
   m_Layer: 0
   m_Name: ObjectLightningBox
   m_TagString: Untagged
@@ -130,3 +131,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6068700380434269348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464204526473978167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948321a633f6f4a4a8895313c64c6192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theLightning: {fileID: 5342214521172138852, guid: 432f014d081220e4f9a5c6038acffe32,
+    type: 3}
+  breakMagnitudeValue: 5

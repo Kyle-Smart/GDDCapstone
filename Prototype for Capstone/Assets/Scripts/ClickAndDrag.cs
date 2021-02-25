@@ -11,6 +11,8 @@ public class ClickAndDrag : MonoBehaviour
     //This is the game object version of the UI element
     [SerializeField]
     GameObject theObjectVersion;
+    [SerializeField]
+    bool isUI = true;
 
     //This handles having the UI element be clickable
     private void OnMouseDown()
@@ -39,7 +41,10 @@ public class ClickAndDrag : MonoBehaviour
     //This handles destroying the UI element and replacing it with the object version
     private void OnMouseUp()
     {
-        Instantiate(theObjectVersion, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if(isUI)
+        {
+            Instantiate(theObjectVersion, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

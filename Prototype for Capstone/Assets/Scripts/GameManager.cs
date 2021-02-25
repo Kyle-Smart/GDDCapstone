@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-
-    public static GameManager Instance { get { return _instance; } }
+    [SerializeField]
+    public DropSlot Bomb;
+    [SerializeField]
+    public GameObject Generator;
+    [SerializeField]
+    public GameObject Button;
+    [SerializeField]
+    public GameObject MoveableText;
+    [SerializeField]
+    public GameObject TheDoor;
 
     public float PlayerHP;
 
-    [SerializeField]
-    public DropSlot Bomb;
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
 
     private void Awake()
     {
@@ -33,6 +40,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Check in here if any of the objects are present then check their states
     }
 }
