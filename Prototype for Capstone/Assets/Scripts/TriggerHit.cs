@@ -15,9 +15,4 @@ public class TriggerHit : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameManager.Instance.Bomb.EnableImage();
-    }
 }

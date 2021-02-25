@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6945262515734705628}
   - component: {fileID: 3899149121545977392}
   - component: {fileID: 6068700380434269348}
+  - component: {fileID: -6503823973360370123}
   m_Layer: 0
   m_Name: ObjectLightningBox
   m_TagString: Untagged
@@ -146,3 +147,17 @@ MonoBehaviour:
   theLightning: {fileID: 5342214521172138852, guid: 432f014d081220e4f9a5c6038acffe32,
     type: 3}
   breakMagnitudeValue: 5
+--- !u!114 &-6503823973360370123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464204526473978167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1946d10e6138e40b3177420f994508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theObjectVersion: {fileID: 0}
+  isUI: 0

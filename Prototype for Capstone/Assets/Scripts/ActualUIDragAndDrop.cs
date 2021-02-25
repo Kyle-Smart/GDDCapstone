@@ -10,10 +10,10 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     //Move them to a child script when we need to
 
     //Vars
+    public DropSlotTypeEnum.DropSlotType slotTextIsIn;
+
     [SerializeField]
     private Canvas theCanvas;
-    [SerializeField]
-    private DropSlot dropSlot;
     [SerializeField]
     private string beingDraggedString;
     [SerializeField]
@@ -28,16 +28,23 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     //Vars for the timer
     private float timer = 3.0f;
     private bool startTimer = false;
+    private CanvasGroup canvasGroup;
+    private bool isTouched;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         UIText = GetComponentInChildren<Text>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        isTouched = false;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         UIText.text = beingDraggedString;
+        canvasGroup.blocksRaycasts = false;
+        isTouched = true;
+        slotTextIsIn = DropSlotTypeEnum.DropSlotType.DEFAULT;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,6 +54,7 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        canvasGroup.blocksRaycasts = true;
     }
 
     /*public void StartTimer()
@@ -61,5 +69,24 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
             timer -= Time.deltaTime;
             UIText.text = "0:0" + Mathf.FloorToInt(timer % 60);
         }*/
+
+        if (isTouched)
+        {
+            switch (slotTextIsIn)
+            {
+                case DropSlotTypeEnum.DropSlotType.GENERATOR:
+                    UIText.text = onGeneratorString;
+                    break;
+                case DropSlotTypeEnum.DropSlotType.BUTTON:
+                    UIText.text = onButtonString;
+                    break;
+                case DropSlotTypeEnum.DropSlotType.DOOR:
+                    UIText.text = onDoorString;
+                    break;
+                default:
+                    UIText.text = beingDraggedString;
+                    break;
+            }
+        }
     }
 }

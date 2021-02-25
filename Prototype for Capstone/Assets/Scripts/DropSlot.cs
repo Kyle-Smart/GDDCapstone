@@ -6,17 +6,14 @@ using UnityEngine.UI;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    Image theImage;
+    [SerializeField]
+    public DropSlotTypeEnum.DropSlotType dropSlotType;
+    [SerializeField]
+    ActualUIDragAndDrop draggableText;
 
     void Start()
     {
-        theImage = GetComponent<Image>();
-        theImage.enabled = false;
-    }
-
-    public void EnableImage()
-    {
-        theImage.enabled = true;
+        
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -24,7 +21,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            //eventData.pointerDrag.gameObject.GetComponent<ActualUIDragAndDrop>().StartTimer();
+            draggableText.slotTextIsIn = dropSlotType;
         }
     }
 }

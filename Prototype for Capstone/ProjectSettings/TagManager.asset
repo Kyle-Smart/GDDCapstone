@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Door
   - Lightning
+  - HPBar
   layers:
   - Default
   - TransparentFX

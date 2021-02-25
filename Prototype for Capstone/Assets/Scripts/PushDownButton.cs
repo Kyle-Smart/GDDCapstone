@@ -9,9 +9,12 @@ public class PushDownButton : MonoBehaviour
     Sprite unpressedSprite;
     [SerializeField]
     Sprite pressedSprite;
+    [SerializeField]
+    Sprite brokenSprite;
 
     private SpriteRenderer spriteRenderer;
     private List<Collider2D> objectsOnButton;
+    private bool isLockedDown;
     bool isPressed;
 
     // Start is called before the first frame update
@@ -19,17 +22,22 @@ public class PushDownButton : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         objectsOnButton = new List<Collider2D>();
+        isLockedDown = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isPressed && objectsOnButton.Count > 0)
+        if (!isLockedDown)
         {
-            ButtonAction();
-        } else if (isPressed && objectsOnButton.Count < 1)
-        {
-            ButtonAction();
+            if (!isPressed && objectsOnButton.Count > 0)
+            {
+                ButtonAction();
+            }
+            else if (isPressed && objectsOnButton.Count < 1)
+            {
+                ButtonAction();
+            }
         }
     }
 
@@ -48,7 +56,7 @@ public class PushDownButton : MonoBehaviour
     }
 
     //Getter for the button state
-    public bool isButtonPressed()
+    public bool IsButtonPressed()
     {
         return isPressed;
     }
@@ -61,5 +69,17 @@ public class PushDownButton : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         objectsOnButton.Remove(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" &&
+            GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.BUTTON &&
+            Input.GetKey(KeyCode.E))
+        {
+            isPressed = true;
+            spriteRenderer.sprite = brokenSprite;
+            isLockedDown = true;
+        }
     }
 }

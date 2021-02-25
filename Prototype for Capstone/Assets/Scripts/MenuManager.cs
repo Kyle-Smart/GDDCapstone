@@ -19,8 +19,8 @@ public class MenuManager : MonoBehaviour
     GameObject thePlayer;
 
     private float startButtonPosY = 1.043f;
-    private float aboveScreenPosY = 6.12f;
-    private float aboveScreenPosX = -12f;
+    private float aboveScreenPosY = 7f;
+    private float aboveScreenPosX = -6f;
     private SpriteRenderer controlsSpriteRenderer;
 
     //Start Method

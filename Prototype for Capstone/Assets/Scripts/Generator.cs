@@ -10,7 +10,7 @@ public class Generator : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isPowered;
     
-    public bool GeneratorOn()
+    public bool IsGeneratorOn()
     {
         return isPowered;
     }
@@ -29,6 +29,17 @@ public class Generator : MonoBehaviour
             Destroy(collision.gameObject);
             spriteRenderer.sprite = generatorOn;
             isPowered = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && 
+            GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.GENERATOR && 
+            Input.GetKey(KeyCode.E))
+        {
+            isPowered = true;
+            spriteRenderer.sprite = generatorOn;
         }
     }
 }
