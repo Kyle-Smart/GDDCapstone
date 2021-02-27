@@ -3046,6 +3046,7 @@ MonoBehaviour:
   MoveableText: {fileID: 257073908}
   TheDoorObject: {fileID: 620806108}
   DoorPoweredIndicator: {fileID: 1392622059}
+  sceneMusicToPlay: 12
   PlayerHP: 0
   textAttachedTo: 0
 --- !u!114 &1281525076
@@ -3547,12 +3548,12 @@ PrefabInstance:
     - target: {fileID: 1625455462224114057, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: -12.87
       objectReference: {fileID: 0}
     - target: {fileID: 1625455462224114057, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.85
+      value: -3.59
       objectReference: {fileID: 0}
     - target: {fileID: 1625455462224114057, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
         type: 3}

@@ -29,7 +29,7 @@ public class Generator : MonoBehaviour
             Destroy(collision.gameObject);
             spriteRenderer.sprite = generatorOn;
             isPowered = true;
-            SoundManager.Instance.PlaySound(SoundManager.Sound.Generator);
+            SoundManager.Instance.PlayLoopingSound(SoundManager.Sound.Generator);
         }
     }
 

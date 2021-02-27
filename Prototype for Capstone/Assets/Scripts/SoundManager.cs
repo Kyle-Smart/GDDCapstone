@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     private static SoundManager _instance;
     public static SoundManager Instance { get { return _instance; } }
 
+    private GameObject onceShotGameObject;
+    private AudioSource oneShotAudioSource;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -34,7 +36,8 @@ public class SoundManager : MonoBehaviour
         UISelectOption,
         PlayerWalking,
         MainMenuMusic,
-        LevelOneMusic
+        LevelOneMusic,
+        UIButtonBreak
     }
 
     [System.Serializable]
@@ -48,9 +51,25 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(Sound sound)
     {
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.PlayOneShot(GetAudioClip(sound), 0.25f);
+        if (onceShotGameObject == null)
+        {
+            onceShotGameObject = new GameObject("Sound");
+            oneShotAudioSource = onceShotGameObject.AddComponent<AudioSource>();
+        }
+
+        oneShotAudioSource.PlayOneShot(GetAudioClip(sound), 0.25f);
+    }
+
+    public void PlayLoopingSound(Sound sound)
+    {
+        GameObject loopingAudioGameObject = new GameObject("Sound");
+        AudioSource loopingAudioSource = loopingAudioGameObject.AddComponent<AudioSource>();
+
+
+        loopingAudioSource.loop = true;
+        loopingAudioSource.volume = 0.25f;
+        loopingAudioSource.clip = GetAudioClip(sound);
+        loopingAudioSource.Play();
     }
 
     private AudioClip GetAudioClip(Sound sound)

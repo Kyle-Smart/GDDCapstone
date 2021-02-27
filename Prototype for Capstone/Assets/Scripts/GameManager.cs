@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject TheDoorObject;
     [SerializeField]
     public GameObject DoorPoweredIndicator;
+    [SerializeField]
+    public SoundManager.Sound sceneMusicToPlay;
 
     public float PlayerHP;
 
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
         }
 
         theDoor = TheDoorObject.GetComponent<Door>();
+
+        SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
     }
 
     // Update is called once per frame

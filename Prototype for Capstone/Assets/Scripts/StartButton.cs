@@ -22,6 +22,7 @@ public class StartButton : MonoBehaviour
         if (collision.transform.tag == "Ground")
         {
             startButton.sprite = brokenSprite;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.UIButtonBreak);
         }
     }
 }
