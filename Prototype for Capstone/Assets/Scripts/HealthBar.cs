@@ -41,4 +41,9 @@ public class HealthBar : MonoBehaviour
             currentHP = 0;
         bar.localScale = new Vector3(currentHP, 1f);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.HPBarHit);
+    }
 }

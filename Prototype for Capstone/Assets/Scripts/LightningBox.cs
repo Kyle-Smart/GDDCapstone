@@ -26,8 +26,12 @@ public class LightningBox : MonoBehaviour
     {
         if (collision.relativeVelocity.magnitude > 5)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.BoxBreak);
             Instantiate(theLightning, gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+        } else
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.BoxDrop);
         }
     }
 }

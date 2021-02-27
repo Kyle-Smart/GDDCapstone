@@ -49,6 +49,7 @@ public class PushDownButton : MonoBehaviour
         if (isPressed)
         {
             spriteRenderer.sprite = pressedSprite;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.ButtonPressDown);
         } else
         {
             spriteRenderer.sprite = unpressedSprite;
@@ -75,11 +76,14 @@ public class PushDownButton : MonoBehaviour
     {
         if (collision.tag == "Player" &&
             GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.BUTTON &&
-            Input.GetKey(KeyCode.E))
+            Input.GetKey(KeyCode.E) &&
+            !isLockedDown)
         {
             isPressed = true;
             spriteRenderer.sprite = brokenSprite;
             isLockedDown = true;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.ButtonStuckDown);
+            GameManager.Instance.LockText();
         }
     }
 }

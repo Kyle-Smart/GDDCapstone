@@ -30,6 +30,7 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     private bool startTimer = false;
     private CanvasGroup canvasGroup;
     private bool isTouched;
+    private bool isUsed;
 
     private void Awake()
     {
@@ -61,6 +62,12 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     {
         startTimer = true;
     }*/
+
+    public void HasBeenUsed()
+    {
+        isUsed = true;
+        canvasGroup.blocksRaycasts = false;
+    }
 
     public void Update()
     {

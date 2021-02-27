@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -28,7 +29,19 @@ public class Door : MonoBehaviour
 
     public void SetIsOpen(bool status)
     {
-        isOpen = status;
+        if (status != isOpen && !isJammedOpen)
+        {
+            if (status)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sound.DoorOpening);
+            }
+            else if (!status)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.Sound.DoorClosing);
+            }
+
+            isOpen = status;
+        }
     }
 
     public void SetIsPowered(bool status)
@@ -66,9 +79,19 @@ public class Door : MonoBehaviour
     {
         if (collision.tag == "Player" &&
             GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.DOOR &&
-            Input.GetKey(KeyCode.E))
+            Input.GetKey(KeyCode.E) &&
+            isPowered &&
+            (!isOpen || !isJammedOpen))
         {
-            isOpen = true;
+            SceneManager.LoadScene("BackToMainMenu");
+        }
+        else if (collision.tag == "Player" &&
+          GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.DOOR &&
+          Input.GetKey(KeyCode.E) &&
+          !isPowered)
+        {
+            Debug.Log("Door needs power!");
+            GameManager.Instance.LockText();
         }
     }
 
@@ -78,13 +101,14 @@ public class Door : MonoBehaviour
         {
             if (collision.tag == "Player")
             {
-                Debug.Log("End");
+                SceneManager.LoadScene("BackToMainMenu");
             }
             else if (collision.tag == "HPBar")
             {
                 Destroy(collision.gameObject); 
                 spriteRenderer.sprite = doorJammed;
                 isJammedOpen = true;
+                SoundManager.Instance.PlaySound(SoundManager.Sound.DoorJamming);
             }
         }
     }

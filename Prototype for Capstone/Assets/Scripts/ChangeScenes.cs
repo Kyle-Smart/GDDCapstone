@@ -15,4 +15,9 @@ public class ChangeScenes : MonoBehaviour
             SceneManager.LoadScene(sceneToChangeTo);
         }
     }
+
+    public void OnClick()
+    {
+        SceneManager.LoadScene(sceneToChangeTo);
+    }
 }

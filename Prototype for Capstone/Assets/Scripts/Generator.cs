@@ -29,6 +29,7 @@ public class Generator : MonoBehaviour
             Destroy(collision.gameObject);
             spriteRenderer.sprite = generatorOn;
             isPowered = true;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Generator);
         }
     }
 
@@ -36,10 +37,13 @@ public class Generator : MonoBehaviour
     {
         if (collision.tag == "Player" && 
             GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.GENERATOR && 
-            Input.GetKey(KeyCode.E))
+            Input.GetKey(KeyCode.E) &&
+            !isPowered)
         {
             isPowered = true;
             spriteRenderer.sprite = generatorOn;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Generator);
+            GameManager.Instance.LockText();
         }
     }
 }

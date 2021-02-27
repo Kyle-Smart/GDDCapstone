@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject MoveableText;
     [SerializeField]
     public GameObject TheDoorObject;
+    [SerializeField]
+    public GameObject DoorPoweredIndicator;
 
     public float PlayerHP;
 
@@ -82,59 +84,39 @@ public class GameManager : MonoBehaviour
             buttonStatus = aButton.IsButtonPressed();
         }
 
-        //TODO: Get the moveable text script functioning
         if (MoveableText != null)
         {
-            //textStatus = aText.IsTextActivated();
-
             textAttachedTo = aText.slotTextIsIn;
         }
-        
-        
-        //Check here if the door is powered
-        if (generatorStatus)
+       
+
+        //The draggable text is checked in the corrosponding things to attach to
+        //EX: The Generator, the Button, and the Door handle the interaction and set powered or open true there
+        if (generatorStatus && buttonStatus)
         {
-            if (!theDoor.IsPowered())
-            {
-                theDoor.SetIsPowered(true);
-            }
-            else
-            {
-                theDoor.SetIsOpen(true);
-            }
-        } else if (!generatorStatus)
+            theDoor.SetIsOpen(true);
+            theDoor.SetIsPowered(true);
+        } else if (generatorStatus || buttonStatus)
         {
-            if (theDoor.IsOpen())
-            {
-                theDoor.SetIsOpen(false);
-            }
-            else
-            {
-                theDoor.SetIsPowered(false);
-            }
+            theDoor.SetIsOpen(false);
+            theDoor.SetIsPowered(true);
+        } else
+        {
+            theDoor.SetIsOpen(false);
+            theDoor.SetIsPowered(false);
         }
 
-        //Check if the door can be opened
-        if (buttonStatus)
+        if (theDoor.IsPowered())
         {
-            if (!theDoor.IsPowered())
-            {
-                theDoor.SetIsPowered(true);
-            }
-            else
-            {
-                theDoor.SetIsOpen(true);
-            }
-        } else if (!buttonStatus)
+            DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = true;
+        } else
         {
-            if (theDoor.IsOpen())
-            {
-                theDoor.SetIsOpen(false);
-            }
-            else
-            {
-                theDoor.SetIsPowered(false);
-            }
+            DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
+
+    public void LockText()
+    {
+        aText.HasBeenUsed();
     }
 }
