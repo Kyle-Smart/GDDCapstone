@@ -9,6 +9,7 @@ public class Generator : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private bool isPowered;
+    private AudioSource loopingSound;
     
     public bool IsGeneratorOn()
     {
@@ -29,7 +30,7 @@ public class Generator : MonoBehaviour
             Destroy(collision.gameObject);
             spriteRenderer.sprite = generatorOn;
             isPowered = true;
-            SoundManager.Instance.PlayLoopingSound(SoundManager.Sound.Generator);
+            loopingSound = SoundManager.Instance.PlayLoopingSound(SoundManager.Sound.Generator);
         }
     }
 

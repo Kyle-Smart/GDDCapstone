@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private bool textStatus;
     public DropSlotTypeEnum.DropSlotType textAttachedTo;
     private Door theDoor;
+    private AudioSource loopingSound;
 
     bool isPowered = false;
     bool isOpen = false;
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
 
         theDoor = TheDoorObject.GetComponent<Door>();
 
-        SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
+        loopingSound = SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
     }
 
     // Update is called once per frame

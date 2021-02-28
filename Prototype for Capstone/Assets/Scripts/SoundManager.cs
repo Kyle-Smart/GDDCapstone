@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour
         oneShotAudioSource.PlayOneShot(GetAudioClip(sound), 0.25f);
     }
 
-    public void PlayLoopingSound(Sound sound)
+    public AudioSource PlayLoopingSound(Sound sound)
     {
         GameObject loopingAudioGameObject = new GameObject("Sound");
         AudioSource loopingAudioSource = loopingAudioGameObject.AddComponent<AudioSource>();
@@ -70,6 +70,13 @@ public class SoundManager : MonoBehaviour
         loopingAudioSource.volume = 0.25f;
         loopingAudioSource.clip = GetAudioClip(sound);
         loopingAudioSource.Play();
+
+        return loopingAudioSource;
+    }
+
+    public void StopSoundLooping(AudioSource source)
+    {
+        source.Stop();
     }
 
     private AudioClip GetAudioClip(Sound sound)

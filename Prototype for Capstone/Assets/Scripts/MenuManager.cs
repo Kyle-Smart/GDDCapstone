@@ -6,6 +6,21 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    private static MenuManager _instance;
+    public static MenuManager Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     //Vars
     [SerializeField]
     GameObject startButtonObject;
@@ -23,13 +38,14 @@ public class MenuManager : MonoBehaviour
     private float startButtonPosY = 1.043f;
     private float aboveScreenPosY = 7f;
     private float aboveScreenPosX = -6f;
+    public AudioSource loopingSound;
     private SpriteRenderer controlsSpriteRenderer;
 
     //Start Method
     public void Start()
     {
         controlsSpriteRenderer = controls.GetComponent<SpriteRenderer>();
-        SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
+        loopingSound = SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
     }
 
     //Once the start button is clicked, break it
