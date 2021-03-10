@@ -3901,6 +3901,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -643473961253756997, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 55bf7c009acbe714c8cb83ab9d8802b5, type: 2}
     - target: {fileID: 1625455462224114057, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
         type: 3}
       propertyPath: m_RootOrder
@@ -3968,7 +3973,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3702559916255037965, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702559916255037965, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702559916255037965, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
+        type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702559916255037965, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3900325013961974642, guid: 1eb6794f86bd34147a0f1d00f3144ca6,
