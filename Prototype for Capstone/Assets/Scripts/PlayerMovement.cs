@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
     bool jumpTimerEnded;
     bool isHit;
+    private Animator playerAnimator;
 
     [SerializeField]
     HealthBar theHPBar;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
         grounded = true;
         jumpTimerEnded = true;
     }
@@ -39,9 +41,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0.2 || Input.GetAxis("Horizontal") < -0.2)
         {
             player.velocity = new Vector2(Input.GetAxis("Horizontal") * maxSpeed, player.velocity.y);
+            playerAnimator.SetBool("isWalking", true);
         } else
         {
             player.velocity = new Vector2(0, player.velocity.y);
+            playerAnimator.SetBool("isWalking", false);
         }
     }
     
@@ -50,10 +54,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Jump") > 0.5 && grounded && jumpTimerEnded)
         {
+            playerAnimator.SetBool("isJumping", true);
             grounded = false;
             jumpTimerEnded = false;
             player.velocity = Vector2.up * jumpingSpeed;
             StartCoroutine(JumpCoolDown());
+            StartCoroutine(EndJumpAnimation());
         }
     }
     
@@ -89,5 +95,12 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         jumpTimerEnded = true;
+    }
+
+    //This handles ending the jump animation
+    private IEnumerator EndJumpAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerAnimator.SetBool("isJumping", false);
     }
 }
