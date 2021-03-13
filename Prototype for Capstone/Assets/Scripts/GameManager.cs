@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public SoundManager.Sound sceneMusicToPlay;
 
     public float PlayerHP;
+    public string Level;
 
     private Generator aGenerator;
     private bool generatorStatus;

@@ -10,6 +10,7 @@ TagManager:
   - Door
   - Lightning
   - HPBar
+  - Clock
   layers:
   - Default
   - TransparentFX

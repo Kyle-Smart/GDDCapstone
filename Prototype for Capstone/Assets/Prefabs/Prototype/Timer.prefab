@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da269ca7c25e34b479fe420c1b9e25b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropSlotType: 0
+  draggableText: {fileID: 0}
 --- !u!1 &5799809451785979158
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -503.59, y: 169.4}
+  m_AnchoredPosition: {x: -280, y: 169.4}
   m_SizeDelta: {x: 137.86575, y: 53.22995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1304635580322417672
@@ -386,7 +388,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b50316ad942f5445983631725e39c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotTextIsIn: 0
   theCanvas: {fileID: 9102309505989594156}
+  beingDraggedString: 
+  onGeneratorString: 
+  onButtonString: 
+  onDoorString: 
 --- !u!225 &7970233294516224790
 CanvasGroup:
   m_ObjectHideFlags: 0

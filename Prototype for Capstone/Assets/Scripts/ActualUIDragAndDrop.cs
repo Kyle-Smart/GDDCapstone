@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 
 public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    //NOTE: Commented out code is to be saved for the timer and bomb interaction
-    //Move them to a child script when we need to
-
     //Vars
     public DropSlotTypeEnum.DropSlotType slotTextIsIn;
 
@@ -24,13 +21,10 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     private string onDoorString;
     private Text UIText;
     private RectTransform rectTransform;
-
-    //Vars for the timer
-    private float timer = 3.0f;
-    private bool startTimer = false;
     private CanvasGroup canvasGroup;
     private bool isTouched;
     private bool isUsed;
+    public bool isText;
 
     private void Awake()
     {
@@ -45,7 +39,7 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
         UIText.text = beingDraggedString;
         canvasGroup.blocksRaycasts = false;
         isTouched = true;
-        slotTextIsIn = DropSlotTypeEnum.DropSlotType.DEFAULT;
+        if (isText) slotTextIsIn = DropSlotTypeEnum.DropSlotType.DEFAULT;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -58,11 +52,6 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
         canvasGroup.blocksRaycasts = true;
     }
 
-    /*public void StartTimer()
-    {
-        startTimer = true;
-    }*/
-
     public void HasBeenUsed()
     {
         isUsed = true;
@@ -71,13 +60,7 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     public void Update()
     {
-        /*if (startTimer)
-        {
-            timer -= Time.deltaTime;
-            UIText.text = "0:0" + Mathf.FloorToInt(timer % 60);
-        }*/
-
-        if (isTouched)
+        if (isTouched && isText)
         {
             switch (slotTextIsIn)
             {

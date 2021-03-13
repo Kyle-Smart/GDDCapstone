@@ -11,17 +11,24 @@ public class DropSlot : MonoBehaviour, IDropHandler
     [SerializeField]
     ActualUIDragAndDrop draggableText;
 
-    void Start()
-    {
-        
-    }
-
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            draggableText.slotTextIsIn = dropSlotType;
+            if (eventData.pointerDrag.gameObject.tag == "Clock")
+            {
+                eventData.pointerDrag.gameObject.GetComponent<Clock>().DetinateClock();
+                StartCoroutine(DestroySelf());
+            }
+            if (draggableText != null) draggableText.slotTextIsIn = dropSlotType;
         }
+    }
+    
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        Destroy(gameObject);
     }
 }
