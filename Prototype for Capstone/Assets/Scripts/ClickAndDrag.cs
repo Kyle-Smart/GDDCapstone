@@ -13,13 +13,17 @@ public class ClickAndDrag : MonoBehaviour
     GameObject theObjectVersion;
     [SerializeField]
     bool isUI = true;
+    public bool isEnabled = true;
 
     //This handles having the UI element be clickable
     private void OnMouseDown()
     {
-        mOffsetZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        if (isEnabled)
+        {
+            mOffsetZ = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
-        mOffset = gameObject.transform.position - GetMouseWorldPosition();
+            mOffset = gameObject.transform.position - GetMouseWorldPosition();
+        }   
     }
 
     //This finds the mouse position in the screen and transfers it to world point
@@ -35,7 +39,7 @@ public class ClickAndDrag : MonoBehaviour
     //As the mouse is dragging the UI element, follow the mouse
     private void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPosition() + mOffset;
+        if(isEnabled) transform.position = GetMouseWorldPosition() + mOffset;
     }
 
     //This handles destroying the UI element and replacing it with the object version

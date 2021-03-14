@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9139160367340077619}
   - component: {fileID: 8023019477066965835}
   - component: {fileID: 5729904903923693097}
+  - component: {fileID: 6700673048218407678}
   m_Layer: 0
   m_Name: PushDownButton
   m_TagString: Untagged
@@ -109,6 +110,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.894736, y: 0.43419456}
   m_EdgeRadius: 0
+--- !u!114 &6700673048218407678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302751393029263225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a5aaed3112f9042a6d4b7dfedeb7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unpressedSprite: {fileID: 21300000, guid: e8d7175e3df2f6443b78cc2ceed7ddba, type: 3}
+  pressedSprite: {fileID: 21300000, guid: 9b8301006c87c8242ada0112dc0ae206, type: 3}
+  brokenSprite: {fileID: 21300000, guid: e4a7488f585976f4ab55b791966150a4, type: 3}
 --- !u!1001 &1949690887050161183
 PrefabInstance:
   m_ObjectHideFlags: 0

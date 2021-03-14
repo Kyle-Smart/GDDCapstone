@@ -94,22 +94,28 @@ public class GameManager : MonoBehaviour
         {
             textAttachedTo = aText.slotTextIsIn;
         }
-       
+
 
         //The draggable text is checked in the corrosponding things to attach to
+        //If the clock has hit the door and opened it then we ignore this
         //EX: The Generator, the Button, and the Door handle the interaction and set powered or open true there
-        if (generatorStatus && buttonStatus)
+        if (!theDoor.hasClockHit)
         {
-            theDoor.SetIsOpen(true);
-            theDoor.SetIsPowered(true);
-        } else if (generatorStatus || buttonStatus)
-        {
-            theDoor.SetIsOpen(false);
-            theDoor.SetIsPowered(true);
-        } else
-        {
-            theDoor.SetIsOpen(false);
-            theDoor.SetIsPowered(false);
+            if (generatorStatus && buttonStatus)
+            {
+                theDoor.SetIsOpen(true);
+                theDoor.SetIsPowered(true);
+            }
+            else if (generatorStatus || buttonStatus)
+            {
+                theDoor.SetIsOpen(false);
+                theDoor.SetIsPowered(true);
+            }
+            else
+            {
+                theDoor.SetIsOpen(false);
+                theDoor.SetIsPowered(false);
+            }
         }
 
         if (theDoor.IsPowered())

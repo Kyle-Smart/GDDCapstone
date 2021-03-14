@@ -23,8 +23,9 @@ public class BreakableGround : MonoBehaviour
         {
             hasHit = true;
             GameObject theClock = Instantiate(collision.gameObject, gameObject.transform);
+            theClock.GetComponent<ClickAndDrag>().isEnabled = false;
             theClock.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-            StartCoroutine(DestroyGround(collision.gameObject));
+            StartCoroutine(DestroyGround(theClock));
             Destroy(collision.gameObject);
         }
     }

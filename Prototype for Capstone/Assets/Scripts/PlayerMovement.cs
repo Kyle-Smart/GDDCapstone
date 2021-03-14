@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     //This method handles collisions with other objects in the scene
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "UIElement" || collision.gameObject.tag == "HPBar" || collision.gameObject.tag == "Lightning")
         {
             grounded = true;
         }

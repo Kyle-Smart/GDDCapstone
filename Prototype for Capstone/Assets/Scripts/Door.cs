@@ -11,6 +11,8 @@ public class Door : MonoBehaviour
     Sprite doorClosed;
     [SerializeField]
     Sprite doorJammed;
+    public bool hasClockHit;
+    public string nextLevel;
 
     private bool isOpen;
     private bool isPowered;
@@ -56,6 +58,7 @@ public class Door : MonoBehaviour
         isOpen = false;
         isPowered = false;
         isJammedOpen = false;
+        hasClockHit = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -83,7 +86,7 @@ public class Door : MonoBehaviour
             isPowered &&
             (!isOpen || !isJammedOpen))
         {
-            SceneManager.LoadScene("BackToMainMenu");
+            SceneManager.LoadScene(nextLevel);
         }
         else if (collision.tag == "Player" &&
           GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.DOOR &&
@@ -101,7 +104,7 @@ public class Door : MonoBehaviour
         {
             if (collision.tag == "Player")
             {
-                SceneManager.LoadScene("BackToMainMenu");
+                SceneManager.LoadScene(nextLevel);
             }
             else if (collision.tag == "HPBar")
             {
@@ -111,5 +114,24 @@ public class Door : MonoBehaviour
                 SoundManager.Instance.PlaySound(SoundManager.Sound.DoorJamming);
             }
         }
+
+        if (collision.gameObject.tag == "Clock" && !hasClockHit)
+        {
+            hasClockHit = true;
+            GameObject theClock = Instantiate(collision.gameObject, gameObject.transform);
+            theClock.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            StartCoroutine(BreakDoorOpen(theClock));
+            Destroy(collision.gameObject);
+        }
+    }
+
+    IEnumerator BreakDoorOpen(GameObject theClock)
+    {
+        theClock.GetComponent<Clock>().DetinateClock();
+        yield return new WaitForSeconds(5.0f);
+
+        Destroy(theClock);
+        SetIsPowered(true);
+        SetIsOpen(true);
     }
 }

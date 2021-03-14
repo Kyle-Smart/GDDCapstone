@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7545445635453004745}
   m_Layer: 0
   m_Name: UIHPBar
-  m_TagString: Untagged
+  m_TagString: HPBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 27.67514, y: 23.193665, z: 1}
+  m_Center: {x: 0.040916964, y: -0.23410797, z: 0}
 --- !u!114 &918318624523872982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1946d10e6138e40b3177420f994508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theObjectVersion: {fileID: 0}
+  theObjectVersion: {fileID: 8123247048589642886, guid: af2f49bc389f9994497c3e5dd1daa0b3,
+    type: 3}
+  isUI: 1
 --- !u!1 &4695915483687084826
 GameObject:
   m_ObjectHideFlags: 0
