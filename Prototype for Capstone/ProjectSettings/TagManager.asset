@@ -12,6 +12,8 @@ TagManager:
   - HPBar
   - Clock
   - UIElement
+  - GivesPower
+  - StartsAction
   layers:
   - Default
   - TransparentFX

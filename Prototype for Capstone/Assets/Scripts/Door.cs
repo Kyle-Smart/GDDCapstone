@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     Sprite doorJammed;
     public bool hasClockHit;
     public string nextLevel;
+    public bool doorOverride;
 
     private bool isOpen;
     private bool isPowered;
@@ -31,7 +32,7 @@ public class Door : MonoBehaviour
 
     public void SetIsOpen(bool status)
     {
-        if (status != isOpen && !isJammedOpen)
+        if (status != isOpen && !isJammedOpen && !doorOverride)
         {
             if (status)
             {
@@ -48,7 +49,7 @@ public class Door : MonoBehaviour
 
     public void SetIsPowered(bool status)
     {
-        isPowered = status;
+        if(doorOverride) isPowered = status;
     }
 
 
@@ -75,6 +76,13 @@ public class Door : MonoBehaviour
             {
                 spriteRenderer.sprite = doorClosed;
             }
+        }
+        
+        if (doorOverride == true)
+        {
+            isPowered = true;
+            isOpen = true;
+            spriteRenderer.sprite = doorOpen;
         }
     }
 

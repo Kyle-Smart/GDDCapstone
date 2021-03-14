@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public GameObject Generator;
     [SerializeField]
-    public GameObject Button;
+    public List<GameObject> Buttons;
     [SerializeField]
     public GameObject MoveableText;
     [SerializeField]
@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
 
     private Generator aGenerator;
     private bool generatorStatus;
-    private PushDownButton aButton;
-    private bool buttonStatus;
+    private List<PushDownButton> theButtons;
+    private List<bool> buttonStatuses;
     private ActualUIDragAndDrop aText;
     private bool textStatus;
     public DropSlotTypeEnum.DropSlotType textAttachedTo;
@@ -51,14 +51,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        theButtons = new List<PushDownButton>();
+        buttonStatuses = new List<bool>();
         if(Generator != null)
         {
             aGenerator = Generator.GetComponent<Generator>();
         }
 
-        if (Button != null)
+        if (Buttons != null)
         {
-            aButton = Button.GetComponent<PushDownButton>();
+            foreach(GameObject button in Buttons)
+                theButtons.Add(button.GetComponent<PushDownButton>());
         }
 
         if (MoveableText != null)
@@ -85,9 +88,10 @@ public class GameManager : MonoBehaviour
             generatorStatus = aGenerator.IsGeneratorOn();
         }
 
-        if (Button != null)
+        if (theButtons != null)
         {
-            buttonStatus = aButton.IsButtonPressed();
+            foreach (PushDownButton button in theButtons)
+                buttonStatuses.Add(button.IsButtonPressed());
         }
 
         if (MoveableText != null)
@@ -99,14 +103,15 @@ public class GameManager : MonoBehaviour
         //The draggable text is checked in the corrosponding things to attach to
         //If the clock has hit the door and opened it then we ignore this
         //EX: The Generator, the Button, and the Door handle the interaction and set powered or open true there
+        //TODO: Refactor this so all door checks occur here and so that this works with lists
         if (!theDoor.hasClockHit)
         {
-            if (generatorStatus && buttonStatus)
+            if (generatorStatus && buttonStatuses[0])
             {
                 theDoor.SetIsOpen(true);
                 theDoor.SetIsPowered(true);
             }
-            else if (generatorStatus || buttonStatus)
+            else if (generatorStatus || buttonStatuses[0])
             {
                 theDoor.SetIsOpen(false);
                 theDoor.SetIsPowered(true);
