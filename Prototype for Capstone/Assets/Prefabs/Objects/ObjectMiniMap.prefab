@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7792495683021790600}
   - component: {fileID: 3547580059204186788}
   - component: {fileID: -4579778394851445799}
+  - component: {fileID: -6873833853473462652}
   m_Layer: 0
   m_Name: ObjectMiniMap
   m_TagString: Untagged
@@ -146,3 +147,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6873833853473462652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094339872815904090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122553f2912c2c342bb1ca88de10b639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionToTeleportTo: {x: -11.5, y: -0.5}
