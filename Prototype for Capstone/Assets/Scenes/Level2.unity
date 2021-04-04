@@ -294,6 +294,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8343595680867993112, guid: bbaaec57131955442942f795dda7772a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8343595680867993113, guid: bbaaec57131955442942f795dda7772a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1054,6 +1059,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 797ba3a8e29d4c54da69ce09e6979b1e, type: 3}
+--- !u!1 &897883335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302751393029263225, guid: 797ba3a8e29d4c54da69ce09e6979b1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 897883334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1113509803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3901679892514566746, guid: f0cbdcb4bf40b7447bd7ab573986de74,
@@ -1170,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
       propertyPath: nextLevel
-      value: BackToMainMenu
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
@@ -1353,7 +1364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 0}
   Generator: {fileID: 1614361423}
-  Buttons: []
+  Buttons:
+  - {fileID: 897883335}
   MoveableText: {fileID: 0}
   TheDoorObject: {fileID: 1392981442}
   DoorPoweredIndicator: {fileID: 73338359}

@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
         if (Buttons != null)
         {
             foreach(GameObject button in Buttons)
+            {
                 theButtons.Add(button.GetComponent<PushDownButton>());
+                buttonStatuses.Add(button.GetComponent<PushDownButton>().IsButtonPressed());
+            }
         }
 
         if (MoveableText != null)
@@ -90,9 +93,8 @@ public class GameManager : MonoBehaviour
 
         if (theButtons != null)
         {
-            buttonStatuses.Clear();
-            foreach (PushDownButton button in theButtons)
-                buttonStatuses.Add(button.IsButtonPressed());
+            for(int i = 0; i < theButtons.Count; ++i)
+                buttonStatuses[i] = theButtons[i].IsButtonPressed();
         }
 
         if (MoveableText != null)

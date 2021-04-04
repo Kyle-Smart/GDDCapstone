@@ -3022,7 +3022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 0}
   Generator: {fileID: 1189487864}
-  Buttons: []
+  Buttons:
+  - {fileID: 7670437772218559864}
   MoveableText: {fileID: 257073908}
   TheDoorObject: {fileID: 620806108}
   DoorPoweredIndicator: {fileID: 1392622059}
@@ -4827,6 +4828,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 797ba3a8e29d4c54da69ce09e6979b1e, type: 3}
+--- !u!1 &7670437772218559864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302751393029263225, guid: 797ba3a8e29d4c54da69ce09e6979b1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7670437772218559863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8343595680012402676
 PrefabInstance:
   m_ObjectHideFlags: 0
