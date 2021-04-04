@@ -49,7 +49,7 @@ public class Door : MonoBehaviour
 
     public void SetIsPowered(bool status)
     {
-        if(doorOverride) isPowered = status;
+        if(!doorOverride) isPowered = status;
     }
 
 

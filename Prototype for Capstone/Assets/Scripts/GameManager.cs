@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
 
         if (theButtons != null)
         {
+            buttonStatuses.Clear();
             foreach (PushDownButton button in theButtons)
                 buttonStatuses.Add(button.IsButtonPressed());
         }
