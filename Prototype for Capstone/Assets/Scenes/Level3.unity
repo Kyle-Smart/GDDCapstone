@@ -487,6 +487,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
         type: 3}
+      propertyPath: ButtonToMove
+      value: 
+      objectReference: {fileID: 1017785217}
+    - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
+        type: 3}
+      propertyPath: ButtonToPower
+      value: 
+      objectReference: {fileID: 1869379627}
+    - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
+        type: 3}
       propertyPath: extendedPosition.x
       value: -15.6
       objectReference: {fileID: 0}
@@ -3279,6 +3289,16 @@ PrefabInstance:
       propertyPath: isExtended
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
+        type: 3}
+      propertyPath: ButtonToMove
+      value: 
+      objectReference: {fileID: 1017785217}
+    - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
+        type: 3}
+      propertyPath: ButtonToPower
+      value: 
+      objectReference: {fileID: 1869379627}
     - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
         type: 3}
       propertyPath: extendedPosition.x
