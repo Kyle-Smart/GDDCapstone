@@ -14,6 +14,7 @@ TagManager:
   - UIElement
   - GivesPower
   - StartsAction
+  - StartButton
   layers:
   - Default
   - TransparentFX

@@ -53,7 +53,8 @@ public class MenuManager : MonoBehaviour
     {
         Instantiate(startButtonObject, new Vector3(0,startButtonPosY,0), Quaternion.identity);
         Destroy(UIStart.gameObject);
-        StartCoroutine(SpawnTheDoor());
+        if (SceneManager.GetActiveScene().name == "Main Menu") StartCoroutine(SpawnTheDoor());
+        else StartCoroutine(EndGame());
     }
 
     //Once the controls button is clicked, either show or hide the controls
@@ -79,5 +80,11 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         door.GetComponent<SpriteRenderer>().color = Color.black;
         Instantiate(thePlayer, new Vector3(aboveScreenPosX, aboveScreenPosY, 0), Quaternion.identity);
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Credits");
     }
 }

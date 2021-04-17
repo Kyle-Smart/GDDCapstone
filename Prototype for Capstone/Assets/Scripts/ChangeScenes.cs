@@ -13,6 +13,9 @@ public class ChangeScenes : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(sceneToChangeTo);
+        } else if (collision.gameObject.tag == "StartButton")
+        {
+            Destroy(collision.gameObject);
         }
     }
 
