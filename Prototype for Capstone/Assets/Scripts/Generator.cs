@@ -36,7 +36,7 @@ public class Generator : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (GameManager.Instance.Level == "Level1")
+        if (GameManager.Instance.Level == "Level1" || GameManager.Instance.Level == "TutorialTwo")
         {
             if (collision.tag == "Player" &&
                 GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.GENERATOR &&

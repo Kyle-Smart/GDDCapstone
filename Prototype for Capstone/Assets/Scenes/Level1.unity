@@ -4593,7 +4593,7 @@ PrefabInstance:
     - target: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
       propertyPath: nextLevel
-      value: Level2
+      value: TutorialThree
       objectReference: {fileID: 0}
     - target: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
