@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theObjectVersion: {fileID: 0}
   isUI: 0
+  isEnabled: 1
 --- !u!114 &8929975182978622201
 MonoBehaviour:
   m_ObjectHideFlags: 0
