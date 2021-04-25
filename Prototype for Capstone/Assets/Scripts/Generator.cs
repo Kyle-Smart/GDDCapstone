@@ -36,18 +36,15 @@ public class Generator : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (GameManager.Instance.Level == "Level1" || GameManager.Instance.Level == "TutorialTwo")
+        if (collision.tag == "Player" &&
+            GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.GENERATOR &&
+            Input.GetKey(KeyCode.E) &&
+            !isPowered)
         {
-            if (collision.tag == "Player" &&
-                GameManager.Instance.textAttachedTo == DropSlotTypeEnum.DropSlotType.GENERATOR &&
-                Input.GetKey(KeyCode.E) &&
-                !isPowered)
-            {
-                isPowered = true;
-                spriteRenderer.sprite = generatorOn;
-                SoundManager.Instance.PlaySound(SoundManager.Sound.Generator);
-                GameManager.Instance.LockText();
-            }
-        }
+            isPowered = true;
+            spriteRenderer.sprite = generatorOn;
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Generator);
+            GameManager.Instance.LockText();
+        } 
     }
 }

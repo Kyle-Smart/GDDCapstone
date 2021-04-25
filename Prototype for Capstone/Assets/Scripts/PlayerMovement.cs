@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         {
             player.velocity = new Vector2(Input.GetAxis("Horizontal") * maxSpeed, player.velocity.y);
             playerAnimator.SetBool("isWalking", true);
+            if (Input.GetAxis("Horizontal") > 0.2) gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            if (Input.GetAxis("Horizontal") < -0.2) gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
         } else
         {
             player.velocity = new Vector2(0, player.velocity.y);

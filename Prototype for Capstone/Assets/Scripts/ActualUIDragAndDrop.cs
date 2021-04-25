@@ -19,6 +19,8 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     private string onButtonString;
     [SerializeField]
     private string onDoorString;
+    [SerializeField]
+    private Door theDoor;
     private Text UIText;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -71,7 +73,8 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
                     UIText.text = onButtonString;
                     break;
                 case DropSlotTypeEnum.DropSlotType.DOOR:
-                    UIText.text = onDoorString;
+                    if (!theDoor.IsPowered()) UIText.text = "Door needs power first!";
+                    else UIText.text = onDoorString;
                     break;
                 default:
                     UIText.text = beingDraggedString;

@@ -439,6 +439,7 @@ MonoBehaviour:
   onGeneratorString: '''E'' To Turn on the Generator'
   onButtonString: '''E'' To Press the Button'
   onDoorString: '''E'' To Open the Door'
+  theDoor: {fileID: 2944890844666966493}
   isText: 1
 --- !u!225 &257073911
 CanvasGroup:
@@ -4674,6 +4675,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe739ceb027b7444b80e1af38e595e7, type: 3}
+--- !u!114 &2944890844666966493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2944890844666966492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620806108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cff3f85903dd7144a0afc23f8a1810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4878966114348923712
 PrefabInstance:
   m_ObjectHideFlags: 0

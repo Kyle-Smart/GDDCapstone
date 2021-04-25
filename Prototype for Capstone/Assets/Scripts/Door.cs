@@ -101,7 +101,6 @@ public class Door : MonoBehaviour
           Input.GetKey(KeyCode.E) &&
           !isPowered)
         {
-            Debug.Log("Door needs power!");
             GameManager.Instance.LockText();
         }
     }
@@ -114,7 +113,7 @@ public class Door : MonoBehaviour
             {
                 SceneManager.LoadScene(nextLevel);
             }
-            else if (collision.tag == "HPBar")
+            else if (collision.tag == "HPBar" && !doorOverride)
             {
                 Destroy(collision.gameObject); 
                 spriteRenderer.sprite = doorJammed;

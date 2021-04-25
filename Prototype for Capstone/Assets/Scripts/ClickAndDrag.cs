@@ -51,4 +51,9 @@ public class ClickAndDrag : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //private void OnMouseOver()
+    //{
+    //    Debug.Log("OVER");
+    //}
 }

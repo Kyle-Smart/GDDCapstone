@@ -2206,6 +2206,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1947557439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &740122020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1947557439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740122019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cff3f85903dd7144a0afc23f8a1810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &800728930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4172,6 +4184,7 @@ MonoBehaviour:
   onGeneratorString: '''E'' To Turn on the Generator'
   onButtonString: '''E'' To Press the Button'
   onDoorString: '''E'' To Open the Door'
+  theDoor: {fileID: 740122020}
   isText: 1
 --- !u!1001 &1959505864
 PrefabInstance:
