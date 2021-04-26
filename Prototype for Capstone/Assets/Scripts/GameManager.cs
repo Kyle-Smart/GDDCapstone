@@ -114,6 +114,10 @@ public class GameManager : MonoBehaviour
                 {
                     theDoor.SetIsPowered(true);
                     theDoor.SetIsOpen(true);
+                } else
+                {
+                    theDoor.SetIsPowered(false);
+                    theDoor.SetIsOpen(false);
                 }
             }
             else if (Generator == null)
@@ -122,6 +126,10 @@ public class GameManager : MonoBehaviour
                 {
                     theDoor.SetIsOpen(true);
                     theDoor.SetIsPowered(true);
+                } else
+                {
+                    theDoor.SetIsPowered(false);
+                    theDoor.SetIsOpen(false);
                 }
             }
             else if (generatorStatus && buttonStatuses[0])

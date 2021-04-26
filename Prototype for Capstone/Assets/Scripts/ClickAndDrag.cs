@@ -52,8 +52,15 @@ public class ClickAndDrag : MonoBehaviour
         }
     }
 
-    //private void OnMouseOver()
-    //{
-    //    Debug.Log("OVER");
-    //}
+    private void OnMouseOver()
+    {
+        if (gameObject.tag == "HPBar") gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.gray;
+        else gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    private void OnMouseExit()
+    {
+        if (gameObject.tag == "HPBar") gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.black;
+        else gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }
