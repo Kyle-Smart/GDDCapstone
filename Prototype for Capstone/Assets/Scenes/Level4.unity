@@ -4258,6 +4258,7 @@ GameObject:
   - component: {fileID: 1951326791}
   - component: {fileID: 1951326793}
   - component: {fileID: 1951326792}
+  - component: {fileID: 1951326795}
   m_Layer: 5
   m_Name: TextBackground
   m_TagString: Untagged
@@ -4317,6 +4318,14 @@ MonoBehaviour:
   onDoorString: '''E'' To Open the Door'
   theDoor: {fileID: 740122020}
   isText: 1
+--- !u!222 &1951326795
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951326790}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1959505864
 PrefabInstance:
   m_ObjectHideFlags: 0

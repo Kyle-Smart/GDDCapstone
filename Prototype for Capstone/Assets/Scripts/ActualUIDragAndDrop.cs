@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //Vars
     public DropSlotTypeEnum.DropSlotType slotTextIsIn;
@@ -52,6 +52,16 @@ public class ActualUIDragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHan
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UIText.color = Color.grey;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIText.color = Color.white;
     }
 
     public void HasBeenUsed()

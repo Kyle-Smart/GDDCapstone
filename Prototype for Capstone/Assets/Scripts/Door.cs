@@ -103,17 +103,24 @@ public class Door : MonoBehaviour
         {
             GameManager.Instance.LockText();
         }
+        else if (isOpen || isJammedOpen)
+        {
+            if (collision.tag == "Player")
+            {
+                SceneManager.LoadScene(nextLevel);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isOpen || isJammedOpen)
         {
-            if (collision.tag == "Player")
-            {
-                SceneManager.LoadScene(nextLevel);
-            }
-            else if (collision.tag == "HPBar" && !doorOverride)
+            //if (collision.tag == "Player")
+            //{
+            //    SceneManager.LoadScene(nextLevel);
+            //}
+             if (collision.tag == "HPBar" && !doorOverride)
             {
                 Destroy(collision.gameObject); 
                 spriteRenderer.sprite = doorJammed;
