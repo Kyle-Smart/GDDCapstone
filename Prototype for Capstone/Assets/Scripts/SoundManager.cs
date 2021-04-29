@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField]
+    AudioMixerGroup audioMixer;
+
     private static SoundManager _instance;
     public static SoundManager Instance { get { return _instance; } }
 
@@ -55,6 +59,7 @@ public class SoundManager : MonoBehaviour
         {
             onceShotGameObject = new GameObject("Sound");
             oneShotAudioSource = onceShotGameObject.AddComponent<AudioSource>();
+            oneShotAudioSource.outputAudioMixerGroup = audioMixer;
         }
 
         oneShotAudioSource.PlayOneShot(GetAudioClip(sound), 0.25f);
@@ -64,6 +69,7 @@ public class SoundManager : MonoBehaviour
     {
         GameObject loopingAudioGameObject = new GameObject("Sound");
         AudioSource loopingAudioSource = loopingAudioGameObject.AddComponent<AudioSource>();
+        loopingAudioSource.outputAudioMixerGroup = audioMixer;
 
 
         loopingAudioSource.loop = true;

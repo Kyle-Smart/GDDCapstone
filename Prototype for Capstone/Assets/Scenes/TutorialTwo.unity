@@ -2479,6 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdfb11d31c5c294d872a4cad542da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24300002, guid: ff6274233b80c6f45a4f75d9a51d1165, type: 2}
   arrayOfSoundAudioClips:
   - sound: 11
     audioClip: {fileID: 8300000, guid: 98d74668c3a789942abfb32491cbf189, type: 3}
