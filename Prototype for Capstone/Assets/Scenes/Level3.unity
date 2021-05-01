@@ -1370,6 +1370,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398aa779f97fa824daae876b61fc31c6, type: 3}
+--- !u!114 &880647558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8287788128348098890, guid: 398aa779f97fa824daae876b61fc31c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 880647557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee5a8ca11bec9c4a82b8d365d61b048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &958963238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,8 +2495,10 @@ MonoBehaviour:
   TheDoorObject: {fileID: 1196511805}
   DoorPoweredIndicator: {fileID: 420779628}
   sceneMusicToPlay: 12
+  volumeSlider: {fileID: 880647558}
   PlayerHP: 0
   Level: Level3
+  volumeLevel: 0
   textAttachedTo: 3
 --- !u!114 &1286077955
 MonoBehaviour:

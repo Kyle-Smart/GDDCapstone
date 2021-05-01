@@ -2016,8 +2016,10 @@ MonoBehaviour:
   TheDoorObject: {fileID: 1900237300}
   DoorPoweredIndicator: {fileID: 642585687}
   sceneMusicToPlay: 12
+  volumeSlider: {fileID: 1743856485}
   PlayerHP: 0
   Level: TutorialThree
+  volumeLevel: 0
   textAttachedTo: 3
 --- !u!114 &1596725519
 MonoBehaviour:
@@ -2990,6 +2992,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398aa779f97fa824daae876b61fc31c6, type: 3}
+--- !u!114 &1743856485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8287788128348098890, guid: 398aa779f97fa824daae876b61fc31c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1743856484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee5a8ca11bec9c4a82b8d365d61b048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1900237299
 PrefabInstance:
   m_ObjectHideFlags: 0

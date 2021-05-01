@@ -85,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "UIElement" || collision.gameObject.tag == "HPBar" || collision.gameObject.tag == "Lightning")
+        {
+            grounded = false;
+        }
+    }
+
     //Timer for after the player takes damage
     private IEnumerator HitCoolDown()
     {

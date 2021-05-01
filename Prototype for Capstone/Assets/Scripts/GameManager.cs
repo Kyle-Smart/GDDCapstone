@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,13 @@ public class GameManager : MonoBehaviour
     public GameObject DoorPoweredIndicator;
     [SerializeField]
     public SoundManager.Sound sceneMusicToPlay;
+    [SerializeField]
+    public VolumeSlider volumeSlider;
 
     public float PlayerHP;
-    public string Level;
+    public string Level; 
+    public float volumeLevel = -1;
+    public AudioSource loopingSound;
 
     private Generator aGenerator;
     private bool generatorStatus;
@@ -30,7 +35,6 @@ public class GameManager : MonoBehaviour
     private bool textStatus;
     public DropSlotTypeEnum.DropSlotType textAttachedTo;
     private Door theDoor;
-    private AudioSource loopingSound;
 
     bool isPowered = false;
     bool isOpen = false;
@@ -72,9 +76,14 @@ public class GameManager : MonoBehaviour
             aText = MoveableText.GetComponent<ActualUIDragAndDrop>();
         }
 
-        theDoor = TheDoorObject.GetComponent<Door>();
+        if (TheDoorObject != null)
+        {
+            theDoor = TheDoorObject.GetComponent<Door>();
+        }
 
         loopingSound = SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
+
+        volumeLevel = volumeSlider.GetComponent<Slider>().value;
     }
 
     // Update is called once per frame
@@ -85,76 +94,82 @@ public class GameManager : MonoBehaviour
 
     private void CheckAndSetStatusOfDoor()
     {
-        //Check in here if any of the objects are present then check their states
-        if (Generator != null)
+        if (theDoor != null)
         {
-            generatorStatus = aGenerator.IsGeneratorOn();
-        }
-
-        if (theButtons != null)
-        {
-            for(int i = 0; i < theButtons.Count; ++i)
-                buttonStatuses[i] = theButtons[i].IsButtonPressed();
-        }
-
-        if (MoveableText != null)
-        {
-            textAttachedTo = aText.slotTextIsIn;
-        }
-
-
-        //The draggable text is checked in the corrosponding things to attach to
-        //If the clock has hit the door and opened it then we ignore this
-        //EX: The Generator, the Button, and the Door handle the interaction and set powered or open true there
-        if (!theDoor.hasClockHit)
-        {
-            if (buttonStatuses.Count < 1)
+            //Check in here if any of the objects are present then check their states
+            if (Generator != null)
             {
-                if (generatorStatus)
+                generatorStatus = aGenerator.IsGeneratorOn();
+            }
+
+            if (theButtons != null)
+            {
+                for (int i = 0; i < theButtons.Count; ++i)
+                    buttonStatuses[i] = theButtons[i].IsButtonPressed();
+            }
+
+            if (MoveableText != null)
+            {
+                textAttachedTo = aText.slotTextIsIn;
+            }
+
+
+            //The draggable text is checked in the corrosponding things to attach to
+            //If the clock has hit the door and opened it then we ignore this
+            //EX: The Generator, the Button, and the Door handle the interaction and set powered or open true there
+            if (!theDoor.hasClockHit)
+            {
+                if (buttonStatuses.Count < 1)
                 {
-                    theDoor.SetIsPowered(true);
+                    if (generatorStatus)
+                    {
+                        theDoor.SetIsPowered(true);
+                        theDoor.SetIsOpen(true);
+                    }
+                    else
+                    {
+                        theDoor.SetIsPowered(false);
+                        theDoor.SetIsOpen(false);
+                    }
+                }
+                else if (Generator == null)
+                {
+                    if (buttonStatuses[0])
+                    {
+                        theDoor.SetIsOpen(true);
+                        theDoor.SetIsPowered(true);
+                    }
+                    else
+                    {
+                        theDoor.SetIsPowered(false);
+                        theDoor.SetIsOpen(false);
+                    }
+                }
+                else if (generatorStatus && buttonStatuses[0])
+                {
                     theDoor.SetIsOpen(true);
-                } else
+                    theDoor.SetIsPowered(true);
+                }
+                else if (generatorStatus || buttonStatuses[0])
                 {
-                    theDoor.SetIsPowered(false);
                     theDoor.SetIsOpen(false);
+                    theDoor.SetIsPowered(true);
+                }
+                else
+                {
+                    theDoor.SetIsOpen(false);
+                    theDoor.SetIsPowered(false);
                 }
             }
-            else if (Generator == null)
+
+            if (theDoor.IsPowered())
             {
-                if (buttonStatuses[0])
-                {
-                    theDoor.SetIsOpen(true);
-                    theDoor.SetIsPowered(true);
-                } else
-                {
-                    theDoor.SetIsPowered(false);
-                    theDoor.SetIsOpen(false);
-                }
-            }
-            else if (generatorStatus && buttonStatuses[0])
-            {
-                theDoor.SetIsOpen(true);
-                theDoor.SetIsPowered(true);
-            }
-            else if (generatorStatus || buttonStatuses[0])
-            {
-                theDoor.SetIsOpen(false);
-                theDoor.SetIsPowered(true);
+                DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
-                theDoor.SetIsOpen(false);
-                theDoor.SetIsPowered(false);
+                DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = false;
             }
-        }
-
-        if (theDoor.IsPowered())
-        {
-            DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = true;
-        } else
-        {
-            DoorPoweredIndicator.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 

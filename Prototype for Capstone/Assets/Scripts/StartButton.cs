@@ -23,7 +23,7 @@ public class StartButton : MonoBehaviour
         {
             startButton.sprite = brokenSprite;
             SoundManager.Instance.PlaySound(SoundManager.Sound.UIButtonBreak);
-            SoundManager.Instance.StopSoundLooping(MenuManager.Instance.loopingSound);
+            SoundManager.Instance.StopSoundLooping(GameManager.Instance.loopingSound);
         }
     }
 }

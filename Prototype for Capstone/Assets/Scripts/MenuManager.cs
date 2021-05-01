@@ -32,8 +32,8 @@ public class MenuManager : MonoBehaviour
     GameObject door;
     [SerializeField]
     GameObject thePlayer;
-    [SerializeField]
-    public SoundManager.Sound sceneMusicToPlay;
+    //[SerializeField]
+    //public SoundManager.Sound sceneMusicToPlay;
 
     private float startButtonPosY = 1.043f;
     private float aboveScreenPosY = 7f;
@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
     public void Start()
     {
         controlsSpriteRenderer = controls.GetComponent<SpriteRenderer>();
-        loopingSound = SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
+        //loopingSound = SoundManager.Instance.PlayLoopingSound(sceneMusicToPlay);
     }
 
     //Once the start button is clicked, break it
