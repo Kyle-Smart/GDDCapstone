@@ -116,10 +116,6 @@ public class Door : MonoBehaviour
     {
         if (isOpen || isJammedOpen)
         {
-            //if (collision.tag == "Player")
-            //{
-            //    SceneManager.LoadScene(nextLevel);
-            //}
              if (collision.tag == "HPBar" && !doorOverride)
             {
                 Destroy(collision.gameObject); 
@@ -129,7 +125,7 @@ public class Door : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Clock" && !hasClockHit)
+        if (collision.gameObject.tag == "Clock" && !hasClockHit && !doorOverride)
         {
             hasClockHit = true;
             GameObject theClock = Instantiate(collision.gameObject, gameObject.transform);

@@ -520,6 +520,7 @@ MonoBehaviour:
   PlayerHP: 0
   Level: Level5
   volumeLevel: 0
+  loopingSound: {fileID: 0}
   textAttachedTo: 3
 --- !u!1001 &48124522
 PrefabInstance:
@@ -2866,6 +2867,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 35135922}
     m_Modifications:
+    - target: {fileID: -2577870531771339156, guid: 09f41926b43947d438acacaf4e68e585,
+        type: 3}
+      propertyPath: theObjectVersion
+      value: 
+      objectReference: {fileID: 8094339872815904090, guid: 1191bfd2ed204ed498b89cb68ebfea72,
+        type: 3}
     - target: {fileID: 1800483624218014472, guid: 09f41926b43947d438acacaf4e68e585,
         type: 3}
       propertyPath: m_RootOrder

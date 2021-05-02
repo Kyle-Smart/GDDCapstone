@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniMap : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class MiniMap : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.transform.position = positionToTeleportTo;
+            string currentLevel = SceneManager.GetActiveScene().name;
+            if (currentLevel == "TutorialFour") collision.gameObject.transform.position = new Vector3(-5.53f, -4.59f, 0);
+            else if (currentLevel == "Level3") collision.gameObject.transform.position = new Vector3(-11.5f, -0.57f, 0);
+            else if (currentLevel == "Level5") collision.gameObject.transform.position = new Vector3(-13.6f, -0.55f, 0);
         }
     }
 }

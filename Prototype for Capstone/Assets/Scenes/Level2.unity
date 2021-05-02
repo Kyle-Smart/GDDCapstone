@@ -1367,6 +1367,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7ca37fe850c7b5c41a6fedefd9030da9,
         type: 3}
+    - target: {fileID: -6330829896397477629, guid: cfe739ceb027b7444b80e1af38e595e7,
+        type: 3}
+      propertyPath: doorJammed
+      value: 
+      objectReference: {fileID: 21300000, guid: 0981470a5aa7a5041b1e0fd7b385397a,
+        type: 3}
     - target: {fileID: 433351972251280052, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1390,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 433351972251280052, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 433351972251280052, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
@@ -1430,6 +1436,11 @@ PrefabInstance:
     - target: {fileID: 4667427938780044770, guid: cfe739ceb027b7444b80e1af38e595e7,
         type: 3}
       propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667427938780044770, guid: cfe739ceb027b7444b80e1af38e595e7,
+        type: 3}
+      propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1552,6 +1563,7 @@ MonoBehaviour:
   PlayerHP: 0
   Level: Level2
   volumeLevel: 0
+  loopingSound: {fileID: 0}
   textAttachedTo: 3
 --- !u!114 &1397795989
 MonoBehaviour:

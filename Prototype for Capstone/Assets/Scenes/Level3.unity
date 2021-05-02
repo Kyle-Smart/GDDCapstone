@@ -2499,6 +2499,7 @@ MonoBehaviour:
   PlayerHP: 0
   Level: Level3
   volumeLevel: 0
+  loopingSound: {fileID: 0}
   textAttachedTo: 3
 --- !u!114 &1286077955
 MonoBehaviour:
@@ -4066,6 +4067,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046352256941705214, guid: cc8dd1a5646c6304186be74e8ea77ef3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6801290688662571974, guid: cc8dd1a5646c6304186be74e8ea77ef3,
         type: 3}
