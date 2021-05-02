@@ -38,6 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        UnPause();
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -48,7 +49,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         UnPause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

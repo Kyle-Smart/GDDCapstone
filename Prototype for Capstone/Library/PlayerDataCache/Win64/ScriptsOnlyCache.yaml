@@ -48,10 +48,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -908,8 +906,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12328}
     - Class: 114
       Script: {instanceID: 13054}
-    - Class: 114
-      Script: {instanceID: 13490}
     - Class: 114
       Script: {instanceID: 13658}
     - Class: 114
@@ -2234,5 +2230,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/EndingScene.unity
   - Assets/Scenes/MainMenuEnding.unity
   - Assets/Scenes/Credits.unity
-  playerPath: C:/Users/Unwan/Desktop/School/SPRING 2021/CAP/ReleaseBuild/Prototype
-    for Capstone.exe
+  playerPath: C:/Users/Unwan/Desktop/School/SPRING 2021/CAP/FinalBuild/A UI's UX
+    Demo.exe
